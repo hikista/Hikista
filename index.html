@@ -31,6 +31,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
         
         .container {
@@ -168,6 +169,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            cursor: pointer;
         }
         
         .btn::before {
@@ -285,6 +287,231 @@
             100% { transform: translateY(0) rotate(5deg); }
         }
         
+        /* About Popup Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .about-modal {
+            background: #fff;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+            position: relative;
+        }
+        
+        .modal-overlay.active .about-modal {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            background: #b38b6d;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-body {
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #b38b6d;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9e1d7;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .author-profile {
+            flex: 0 0 300px;
+            text-align: center;
+            background: #f9f7f4;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #e9e1d7;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #b38b6d;
+            font-family: 'Playfair Display', serif;
+            border: 4px solid #b38b6d;
+        }
+        
+        .author-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2a2a2a;
+            margin-bottom: 5px;
+        }
+        
+        .author-title {
+            color: #b38b6d;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e9e1d7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b38b6d;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: #b38b6d;
+            color: #fff;
+            transform: translateY(-5px);
+        }
+        
+        .timeline {
+            margin-top: 30px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: #b38b6d;
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #b38b6d;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #b38b6d;
+        }
+        
+        .timeline-year {
+            font-weight: 600;
+            color: #b38b6d;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            color: #2a2a2a;
+            margin-bottom: 5px;
+        }
+        
+        .modal-footer {
+            padding: 20px 40px;
+            background: #f9f7f4;
+            text-align: center;
+            border-top: 1px solid #e9e1d7;
+        }
+        
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #b38b6d;
+            margin-top: 10px;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 1100px) {
             .hero h2 {
@@ -336,6 +563,16 @@
             .book-decoration {
                 display: none;
             }
+            
+            .modal-body {
+                padding: 20px;
+                flex-direction: column;
+            }
+            
+            .author-profile {
+                flex: 1;
+                margin-top: 20px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -360,6 +597,14 @@
                 padding: 15px;
                 font-size: 1.1rem;
             }
+            
+            .modal-header {
+                padding: 15px 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -375,7 +620,7 @@
                 <nav>
                     <ul>
                         <li><a href="#">HOME</a></li>
-                       <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="#" id="about-link">ABOUT</a></li>
                         <li><a href="#">BOOKS</a></li>
                         <li><a href="#">CONTACT</a></li>
                     </ul>
@@ -395,7 +640,7 @@
                 <h2>The journey that never ends</h2>
                 
                 <div class="quote">
-                    Cerita tentang seseorang yang terus bertanya mengapa ia hidup di dunia ini?
+                    Cerita seseorang tentang yang terus bertanya mengapa ia hidup di dunia ini?
                 </div>
                 
                 <a href="#" class="btn">BACA NOVEL <i class="fas fa-book-open"></i></a>
@@ -405,7 +650,70 @@
         </div>
     </section>
     
-
+    <!-- About Popup -->
+    <div class="modal-overlay" id="aboutModal">
+        <div class="about-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Tentang Penulis</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="about-content">
+                    <h3>Perjalanan Kreatif</h3>
+                    <p></p>
+                    
+                    <p>Perjalanan menulis dimulai sejak usia remaja, ketika Hikista menemukan kekuatan kata-kata sebagai sarana memahami dunia dan diri sendiri. Setiap novel yang ditulisnya merupakan bagian dari eksplorasi pertanyaan eksistensial yang terus menggelayuti pikiran manusia.</p>
+                    
+                    <h3>Filosofi Menulis</h3>
+                    <p>"Menulis bagiku adalah proses menemukan makna dalam kekacauan. Setiap karakter yang kutemui dalam imajinasi adalah bagian dari diriku yang mencoba memahami mengapa kita ada di dunia ini."</p>
+                    
+                    <p>Hikista percaya bahwa cerita yang baik tidak memberikan jawaban, melainkan mengajak pembaca untuk mengajukan pertanyaan-pertanyaan baru. Setiap halaman novel adalah undangan untuk merenungkan hidup, cinta, kehilangan, dan pencarian makna.</p>
+                    
+                    <h3>Perjalanan</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year"></div>
+                            <div class="timeline-title"></div>
+                            <p></p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year"></div>
+                            <div class="timeline-title"></div>
+                            <p></p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year"></div>
+                            <div class="timeline-title"></div>
+                            <p></p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year"></div>
+                            <div class="timeline-title"></div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="author-profile">
+                    <div class="profile-img">H</div>
+                    <div class="author-name">Hikista</div>
+                    <div class="author-title">Penulis Novel & Pemimpi</div>
+                    <p>Seorang pencari makna yang menemukan suara melalui kata-kata. Setiap cerita adalah bagian dari perjalanan panjang memahami keindahan dan kompleksitas hidup.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-goodreads"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p>"Setiap kata yang kutulis adalah langkah dalam perjalanan tanpa akhir."</p>
+                <div class="signature">- Hikista</div>
+            </div>
+        </div>
+    </div>
     
     <script>
         // Simple animation on scroll for header
@@ -431,6 +739,38 @@
                     });
                 }
             });
+        });
+        
+        // About Popup Functionality
+        const aboutLink = document.getElementById('about-link');
+        const closeModal = document.getElementById('closeModal');
+        const aboutModal = document.getElementById('aboutModal');
+        
+        aboutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            aboutModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+        
+        closeModal.addEventListener('click', function() {
+            aboutModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        aboutModal.addEventListener('click', function(e) {
+            if (e.target === aboutModal) {
+                aboutModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && aboutModal.classList.contains('active')) {
+                aboutModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
