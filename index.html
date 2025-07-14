@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Designer</title>
+    <title>Hikista - Novel Writer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
         
         body {
-            background: #f8f9fa;
+            background: #f8f5f2;
             color: #333;
             line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
         
         /* Header Styles */
         header {
             background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -44,16 +46,20 @@
         }
         
         .logo h1 {
-            font-size: 28px;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
             font-weight: 700;
             letter-spacing: 1px;
+            color: #2a2a2a;
         }
         
         .logo p {
             font-size: 14px;
-            color: #666;
+            color: #8c7b6d;
             margin-top: 5px;
-            font-weight: 300;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
         
         nav ul {
@@ -63,18 +69,35 @@
         
         nav ul li {
             margin-left: 30px;
+            position: relative;
         }
         
         nav ul li a {
             text-decoration: none;
-            color: #333;
+            color: #5d5d5d;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 15px;
             transition: color 0.3s;
+            letter-spacing: 0.5px;
         }
         
         nav ul li a:hover {
-            color: #6c63ff;
+            color: #b38b6d;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #b38b6d;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
         }
         
         /* Hero Section */
@@ -82,7 +105,7 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1495640388908-05fa85288e61?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: #fff;
@@ -94,58 +117,104 @@
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 20px;
         }
         
         .hero h2 {
-            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
             font-weight: 700;
             margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 40px;
             opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .quote {
+            font-style: italic;
+            background: rgba(179, 139, 109, 0.3);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            border-left: 3px solid #b38b6d;
+
         }
         
         .btn {
             display: inline-block;
-            background: #6c63ff;
+            background: #b38b6d;
             color: #fff;
-            padding: 15px 40px;
+            padding: 16px 45px;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 500;
             font-size: 18px;
             transition: all 0.3s;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            border: 2px solid #b38b6d;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: #fff;
+            transition: width 0.5s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
         }
         
         .btn:hover {
-            background: #5751d6;
+            color: #b38b6d;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         
         .btn i {
             margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover i {
+            transform: translateX(5px);
         }
         
         .template-info {
             font-size: 14px;
             opacity: 0.7;
             margin-top: 30px;
+            letter-spacing: 0.5px;
+            font-style: italic;
         }
         
         /* Footer */
         footer {
-            background: #333;
-            color: #fff;
+            background: #2a2a2a;
+            color: #d9d1c7;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px 30px;
         }
         
         .footer-content {
@@ -156,16 +225,17 @@
         .footer-content p {
             font-size: 16px;
             margin-bottom: 10px;
+            line-height: 1.8;
         }
         
         .copyright {
             font-size: 14px;
-            opacity: 0.8;
-            margin-top: 20px;
+            opacity: 0.7;
+            margin-top: 30px;
         }
         
         .heart {
-            color: #ff4d4d;
+            color: #e74c3c;
             display: inline-block;
             animation: heartbeat 1.2s infinite;
         }
@@ -178,10 +248,53 @@
             100% { transform: scale(1); }
         }
         
+        /* Book Decoration */
+        .book-decoration {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: rotate(5deg);
+            z-index: -1;
+        }
+        
+        .book-1 {
+            top: 20%;
+            left: 10%;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .book-2 {
+            top: 40%;
+            right: 12%;
+            animation: float 10s infinite ease-in-out;
+            animation-delay: 1s;
+        }
+        
+        .book-3 {
+            bottom: 20%;
+            left: 15%;
+            animation: float 9s infinite ease-in-out;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(5deg); }
+            50% { transform: translateY(-20px) rotate(8deg); }
+            100% { transform: translateY(0) rotate(5deg); }
+        }
+        
         /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero h2 {
+                font-size: 4rem;
+            }
+        }
+        
         @media (max-width: 992px) {
             .hero h2 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             nav ul {
@@ -209,30 +322,43 @@
             
             .hero {
                 height: auto;
-                padding: 100px 20px;
+                padding: 120px 20px;
             }
             
             .hero h2 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .book-decoration {
+                display: none;
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
             nav ul li {
-                margin: 5px 10px;
+                margin: 5px 8px;
             }
             
             nav ul li a {
-                font-size: 14px;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
+                font-size: 13px;
             }
             
             .btn {
-                padding: 12px 30px;
+                padding: 14px 25px;
                 font-size: 16px;
+            }
+            
+            .quote {
+                padding: 15px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -243,19 +369,14 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <h1>Jackson Ford</h1>
-                    <p>UI/UX DESIGNER IN PHILIPPINES</p>
+                    <h1>Hikista</h1>
+                    <p>Novel Writer</p>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="#">HOME</a></li>
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">SERVICES</a></li>
-                        <li><a href="#">SKILLS</a></li>
-                        <li><a href="#">EDUCATION</a></li>
-                        <li><a href="#">EXPERIENCE</a></li>
-                        <li><a href="#">WORK</a></li>
-                        <li><a href="#">BLOG</a></li>
+                       <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="#">BOOKS</a></li>
                         <li><a href="#">CONTACT</a></li>
                     </ul>
                 </nav>
@@ -265,21 +386,52 @@
     
     <!-- Hero Section -->
     <section class="hero">
+        <div class="book-decoration book-1"></div>
+        <div class="book-decoration book-2"></div>
+        <div class="book-decoration book-3"></div>
+        
         <div class="container">
             <div class="hero-content">
-                <h2>I am a Designer</h2>
-                <p class="template-info">100% html5 bootstrap templates Made by colorlib.com</p>
-                <a href="#" class="btn">VIEW PORTFOLIO <i class="fas fa-comment"></i></a>
+                <h2>The journey that never ends</h2>
+                
+                <div class="quote">
+                    Cerita seseorang tentang seseorang yang terus bertanya mengapa ia hidup di dunia ini?
+                </div>
+                
+                <a href="#" class="btn">BACA NOVEL <i class="fas fa-book-open"></i></a>
+                
+                <p class="template-info">Cerita yang berkembang bersama sang penulis</p>
             </div>
         </div>
     </section>
     
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© Copyright ©2018 All rights reserved | This template is made with <span class="heart">❤</span> by Colorlib</p>
-            <p class="copyright">Demo Images: Unsplash.com</p>
-        </div>
-    </footer>
+
+    
+    <script>
+        // Simple animation on scroll for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.08)';
+                header.style.background = '#fff';
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId !== '#') {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
