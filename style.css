@@ -1,0 +1,55 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #0077b6;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.highlight {
+  color: #ffd166;
+}
+
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  background: #0077b6;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
