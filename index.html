@@ -101,7 +101,6 @@
             width: 100%;
         }
         
-        /* Hero Section */
        .hero {
     height: 100vh;
     display: flex;
@@ -115,6 +114,16 @@
     padding: 0 20px;
     margin-top: 80px;
 }
+
+/* RESPONSIVE FIX untuk HP */
+@media (max-width: 768px) {
+    .hero {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
 
         
         .hero-content {
